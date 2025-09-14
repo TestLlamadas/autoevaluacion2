@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test Nivel 0 - Aprende a Llamar (Test 2)</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 20px; background: #f8f9fa; }
+.container { max-width: 600px; margin: auto; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+h1 { text-align: center; }
+.question { margin-bottom: 20px; }
+button { background: #007bff; color: #fff; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+button:hover { background: #0056b3; }
+.result { font-weight: bold; margin-top: 20px; text-align: center; font-size: 18px; }
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Test Nivel 0 – Test 2</h1>
+<form id="quizForm">
+<div class="question">
+<p>1. Al despedirte de una llamada profesional, lo correcto es:</p>
+<label><input type="radio" name="q1" value="0"> Colgar sin decir nada</label><br>
+<label><input type="radio" name="q1" value="1"> Agradecer y despedirse cordialmente</label><br>
+<label><input type="radio" name="q1" value="0"> Decir “adiós” rápidamente y cortar</label>
+</div>
+
+<div class="question">
+<p>2. Si necesitas más tiempo para responder durante una llamada:</p>
+<label><input type="radio" name="q2" value="0"> Fingir que sabes la respuesta</label><br>
+<label><input type="radio" name="q2" value="1"> Pedir amablemente unos segundos para responder</label><br>
+<label><input type="radio" name="q2" value="0"> Cambiar de tema para ganar tiempo</label>
+</div>
+
+<div class="question">
+<p>3. Para asegurar que la otra persona comprende lo que dices, lo mejor es:</p>
+<label><input type="radio" name="q3" value="0"> Hablar rápido para terminar pronto</label><br>
+<label><input type="radio" name="q3" value="1"> Ser claro y pausado, verificando comprensión</label><br>
+<label><input type="radio" name="q3" value="0"> Repetir todo varias veces sin escuchar</label>
+</div>
+
+<div class="question">
+<p>4. Durante una llamada profesional, si surge un error:</p>
+<label><input type="radio" name="q4" value="0"> Ignorarlo y continuar</label><br>
+<label><input type="radio" name="q4" value="1"> Reconocerlo y explicar la solución</label><br>
+<label><input type="radio" name="q4" value="0"> Culpar a otra persona</label>
+</div>
+
+<div class="question">
+<p>5. El lenguaje durante una llamada debe ser:</p>
+<label><input type="radio" name="q5" value="1"> Profesional y respetuoso</label><br>
+<label><input type="radio" name="q5" value="0"> Muy informal, como en chat</label><br>
+<label><input type="radio" name="q5" value="0"> Técnico sin explicaciones</label>
+</div>
+
+<div style="text-align:center;">
+<button type="button" onclick="checkAnswers()">Enviar</button>
+</div>
+</form>
+
+<div id="result" class="result"></div>
+</div>
+
+<script>
+function checkAnswers() {
+let form = document.forms["quizForm"];
+let score = 0;
+let total = 5;
+
+for (let i = 1; i <= total; i++) {
+let answer = form["q"+i].value;
+score += parseInt(answer || 0);
+}
+
+let resultText = "Tu puntuación: " + score + "/" + total + ". ";
+if (score === 5) resultText += "¡Excelente, estás listo para practicar!";
+else if (score >= 3) resultText += "Muy bien, repasa algunos detalles.";
+else resultText += "Necesitas reforzar lo básico, vuelve al módulo inicial.";
+
+document.getElementById("result").innerText = resultText;
+}
+</script>
+</body>
+</html>
